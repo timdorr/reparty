@@ -1,4 +1,4 @@
-# Reparty
+# Reparty [![Build Status](https://travis-ci.org/timdorr/reparty.png?branch=master)](https://travis-ci.org/timdorr/reparty) [![Dependency Status](https://gemnasium.com/timdorr/reparty.png)](https://gemnasium.com/timdorr/reparty) [![Code Climate](https://codeclimate.com/github/timdorr/reparty.png)](https://codeclimate.com/github/timdorr/reparty)
 
 __A business analytics reporting party!__
 
