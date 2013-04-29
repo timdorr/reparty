@@ -5,7 +5,7 @@ describe "Reparty::Report::ActiveRecord" do
     Reparty.config do |config|
       config.add_report Reparty::Report::ActiveRecord
     end
-    Reparty.reports.first.should be_kind_of(Reparty::Report::ActiveRecord)
+    Reparty.reports.last.should be_kind_of(Reparty::Report::ActiveRecord)
   end
 
   it 'implements run' do
