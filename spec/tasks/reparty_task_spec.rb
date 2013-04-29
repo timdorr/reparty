@@ -15,7 +15,7 @@ describe "reparty:email" do
   it "should generate an email" do
     expect{
       subject.invoke("test@test.com")
-    }.to_not raise_exception
+    }.to change(ActionMailer::Base, :deliveries)
   end
 
   it "should send out via letter_opener", letteropener: true do
