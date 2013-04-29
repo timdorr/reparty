@@ -1,16 +1,18 @@
 require_relative '../spec_helper'
 
 describe "Reparty::Report::ActiveRecord" do
-  it 'configures cleanly' do
-    Reparty.config do |config|
-      config.add_report Reparty::Report::ActiveRecord
+  before(:each) do
+    class User
+      def self.count
+        2
+      end
     end
-    Reparty.reports.last.should be_kind_of(Reparty::Report::ActiveRecord)
   end
 
-  it 'implements run' do
-    expect{
-      Reparty::Report::ActiveRecord.new.run
-    }.to_not raise_exception
+  it 'configures cleanly' do
+    Reparty.config do |config|
+      config.add_report Reparty::Report::ActiveRecord, "Users", :user
+    end
+    Reparty.reports.last.should be_kind_of(Reparty::Report::ActiveRecord)
   end
 end
