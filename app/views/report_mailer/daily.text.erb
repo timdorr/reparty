@@ -1,5 +1,6 @@
 Reports:
 
 <% @reports.each do |report| -%>
+:: <%= report.title %> ::
 <%= render partial: report.class.name.demodulize.underscore, locals:{report:report} %>
 <% end -%>

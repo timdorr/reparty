@@ -14,8 +14,9 @@ describe Reparty do
 
   it 'adds reports' do
     Reparty.config do |config|
-      config.add_report Reparty::Report
+      config.add_report Reparty::Report, "Some Report"
     end
     Reparty.reports.first.should be_kind_of(Reparty::Report)
+    Reparty.reports.first.title.should == "Some Report"
   end
 end
