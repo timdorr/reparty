@@ -6,7 +6,6 @@ namespace :reparty do
       next
     end
 
-    ActionMailer::Base.delivery_method = :letter_opener
     ReportMailer.daily(args.address).deliver
   end
 end
