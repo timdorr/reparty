@@ -1,3 +1,5 @@
+Reports:
+
 <% @reports.each do |report| -%>
-<%= render report %>
+<%= render partial: report.class.name.demodulize.underscore, locals:{report:report} %>
 <% end -%>
