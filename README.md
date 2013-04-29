@@ -1,29 +1,32 @@
 # Reparty
 
-TODO: Write a gem description
+A business analytics reporting party!
 
-## Installation
+Although initially concentrating on a daily email report, Reparty intends to be an easy 
+tool for building dashboards and reports focused on business analytics about your app. 
 
-Add this line to your application's Gemfile:
+Planned reporting modules include:
 
-    gem 'reparty'
+* ActiveRecord, including arbitrary sum/count columns
+* Google Analytics/MixPanel/Gaug.es/etc etc
+* Stripe
+* Twitter
 
-And then execute:
+## Configuration
 
-    $ bundle
+Whilst not completely done, this is how you'll configure it for emailing a daily user count in the near future.
 
-Or install it yourself as:
-
-    $ gem install reparty
+    Reparty.config do |config|
+      config.from = "test@test.com"
+      config.subject = "SalesLoft JCA Daily Report"
+    
+      config.add_report Reparty::Report::ActiveRecord, :user, :count
+    end
 
 ## Usage
 
-TODO: Write usage instructions here
+Generating an email is as simple as a rake task:
 
-## Contributing
+    rake reparty:email[someone@somewhere.com]
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+You can run this in a cron job or other scheduling system.
