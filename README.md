@@ -1,6 +1,6 @@
 # Reparty
 
-A business analytics reporting party!
+__A business analytics reporting party!__
 
 Although initially concentrating on a daily email report, Reparty intends to be an easy 
 tool for building dashboards and reports focused on business analytics about your app. 
