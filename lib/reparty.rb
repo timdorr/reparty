@@ -14,7 +14,7 @@ module Reparty
     attr_reader :reports
 
     def config
-      self.configuration ||= Config.new
+      self.configuration = Config.new
 
       yield(configuration)
 
