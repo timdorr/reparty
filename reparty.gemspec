@@ -20,9 +20,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "railties", "~> 3.2"
   spec.add_dependency "actionmailer", "~> 3.2"
+  spec.add_dependency "activerecord", "~> 3.2"
   spec.add_dependency "rmagick"
   spec.add_dependency "gruff"
-  spec.add_dependency "groupdate"
+  spec.add_dependency "roadie"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
