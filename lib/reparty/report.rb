@@ -5,13 +5,15 @@ module Reparty
     attr_reader :title
 
     def initialize(title)
-      raise "Report: title must be defined" unless title.is_a?(String) || title.blank?
+      raise "Report: title must be defined" if title.blank?
       @title = title
     end
 
     def attach(attachments)
       # Optional
     end
+
+    protected
 
     def build_daily_graph
       g = Gruff::Line.new(500)
