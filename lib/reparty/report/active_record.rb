@@ -9,7 +9,7 @@ module Reparty
         raise "Report::ActiveRecord: model undefined" unless args.first.is_a?(Symbol)
         @model = Kernel.const_get(args.first.to_s.capitalize)
 
-        @operation = args.fetch(2, :count)
+        @operation = args.fetch(1, :count)
         @field = :created_at
 
         if args.last.is_a?(Hash)
@@ -26,11 +26,21 @@ module Reparty
       end
 
       def daily_dataset
-        7.downto(1).map { |x| @model.where("DATE(#{@field.to_s}) = ?", (DateTime.now.at_midnight-x).strftime('%Y-%m-%d')).send(@operation, @field) }
+        if @operation == :total
+          7.downto(1).map { |x| @model.where("#{@field.to_s} < ?", DateTime.now-x).send(:count, @field) }
+        else
+          7.downto(1).map { |x| @model.where("DATE(#{@field.to_s}) = ?", DateTime.now-x).send(@operation, @field) }
+        end
+      end
+
+      def yesterday
+        op = @operation == :total ? :count : @operation
+        @model.where("DATE(#{@field.to_s}) = ?", DateTime.now-1).send(op, @field)
       end
 
       def total
-        @model.send(@operation, @field)
+        op = @operation == :total ? :count : @operation
+        @model.send(op, @field)
       end
     end
   end

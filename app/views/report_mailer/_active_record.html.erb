@@ -1,9 +1,14 @@
 <table width="500">
   <tr>
-    <td align="left"><h3 style="margin:0"><%= report.title %></h3></td>
-    <td align="right">Total <%= report.model.to_s.pluralize %>: <%= number_with_delimiter(report.total) %></td>
+    <td align="left">
+      <h3 style="margin:0"><%= report.title %></h3>
+      <ul>
+        <li>Total <%= report.model.to_s.pluralize %>: <%= number_with_delimiter(report.total) %></li>
+        <li><%= report.model.to_s.pluralize %> created yesterday: <%= number_with_delimiter(report.yesterday) %></li>
+      </ul>
+    </td>
   </tr>
   <tr>
-    <td colspan="2"><%= image_tag attachments["#{report.hash}.png"].url, align: "center" %></td>
+    <td align="center"><%= image_tag attachments["#{report.hash}.png"].url, align: "center" %></td>
   </tr>
 </table>
