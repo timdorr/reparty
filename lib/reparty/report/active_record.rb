@@ -1,3 +1,5 @@
+require 'active_record'
+
 module Reparty
   class Report
     class ActiveRecord < Report
@@ -6,8 +8,13 @@ module Reparty
       def initialize(*args, &block)
         super(args.shift)
 
-        raise "Report::ActiveRecord: model undefined" unless args.first.is_a?(Symbol)
-        @model = Kernel.const_get(args.first.to_s.capitalize)
+        if args.first.is_a?(Symbol)
+          @model = Kernel.const_get(args.first.to_s.capitalize)
+        elsif args.first.is_a?(::ActiveRecord::Relation)
+          @model = args.first
+        else
+          raise "Report::ActiveRecord: model undefined"
+        end
 
         @operation = args.fetch(1, :count)
         @field = :created_at
@@ -27,9 +34,9 @@ module Reparty
 
       def daily_dataset
         if @operation == :total
-          7.downto(1).map { |x| @model.where("#{@field.to_s} < ?", DateTime.now-x).send(:count, @field) }
+          7.downto(1).map { |x| @model.where("#{@field.to_s} < ?", DateTime.now.at_midnight-x).send(:count, @field) }
         else
-          7.downto(1).map { |x| @model.where("DATE(#{@field.to_s}) = ?", DateTime.now-x).send(@operation, @field) }
+          7.downto(1).map { |x| @model.where("DATE(#{@field.to_s}) = ?", DateTime.now.to_date-x).send(@operation, @field) }
         end
       end
 
