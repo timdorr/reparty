@@ -12,6 +12,10 @@ module Reparty
       def subject
         Reparty.configuration.subject || "Reparty Report!"
       end
+
+      def title
+        Reparty.configuration.title || 'Your Daily Report:'
+      end
     end
   end
 end
