@@ -6,7 +6,6 @@ require "reparty/report/active_record"
 require "reparty/email"
 
 require "reparty/engine"
-require "reparty/railties"
 
 module Reparty
   class << self
