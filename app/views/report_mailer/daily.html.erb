@@ -1,0 +1,15 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+</head>
+<body style="font-family: Helvetica, Arial, sans-serif;">
+<table cellpadding="0" cellspacing="0" border="0" align="center" width="600">
+  <% @reports.each do |report| -%>
+    <tr><td>
+    <h3><%= report.title %></h3>
+    <%= render partial: report.class.name.demodulize.underscore, locals:{report:report} %>
+    </td></tr>
+  <% end -%>
+</table>
+</body>
+</html>

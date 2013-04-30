@@ -20,6 +20,14 @@ module Reparty
         end if args.last.is_a?(Hash)
       end
 
+      def attach(attachments)
+        @graph = build_daily_graph
+
+
+
+        attachments.inline["#{self.hash}.png"] = @graph.to_blob
+      end
+
       def total
         @model.send(@operation, @field)
       end

@@ -4,6 +4,7 @@ class ReportMailer < ActionMailer::Base
   def daily(to)
 
     @reports = Reparty::Email.reports
+    @reports.each {|r| r.attach(attachments)}
 
     mail(
         from: Reparty::Email.from,
