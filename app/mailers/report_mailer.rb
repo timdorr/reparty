@@ -5,6 +5,7 @@ class ReportMailer < ActionMailer::Base
 
     @reports = Reparty::Email.reports
     @reports.each {|r| r.attach(attachments)}
+    attachments.inline['spacer.gif'] = File.read(Reparty.root + 'app/assets/images/spacer.gif')
 
     mail(
         from: Reparty::Email.from,
