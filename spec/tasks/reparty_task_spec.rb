@@ -6,11 +6,7 @@ describe "reparty:email" do
   include_context "rake"
 
   before(:each) do
-    class User
-      def self.count(field=nil)
-        2
-      end
-    end
+    User.delete_all
 
     Reparty.config do |config|
       config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
@@ -34,6 +30,16 @@ describe "reparty:email" do
     require 'letter_opener'
     ActionMailer::Base.add_delivery_method :letter_opener, LetterOpener::DeliveryMethod, :location => File.expand_path('../../../tmp/letter_opener', __FILE__)
     ActionMailer::Base.delivery_method = :letter_opener
+
+    [
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 2},
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 2},
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 4},
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 5},
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 6},
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 7},
+        {:name => "Someone", :score => 1, :created_at => DateTime.now - 8},
+    ].each{|u| User.create!(u) }
 
     subject.invoke("test@test.com")
   end

@@ -1,2 +1,9 @@
-
-<%= image_tag attachments["#{report.hash}.png"].url, align: "center" %>
+<table width="500">
+  <tr>
+    <td align="left"><h3 style="margin:0"><%= report.title %></h3></td>
+    <td align="right">Total <%= report.model.to_s.pluralize %>: <%= report.total %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= image_tag attachments["#{report.hash}.png"].url, align: "center" %></td>
+  </tr>
+</table>
