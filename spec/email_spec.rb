@@ -2,20 +2,23 @@ require 'spec_helper'
 
 describe Reparty::Email do
   describe "provides variables" do
-    let(:from)    { "test@test.com" }
-    let(:subject) { "Test Subject" }
-    let(:title)   { "Test Title" }
+    let(:klass) { subject.class }
+
+    let(:from)  { "test@test.com" }
+    let(:subj)  { "Test Subject" }
+    let(:title) { "Test Title" }
 
     before do
       Reparty.config do |config|
         config.from = from
-        config.subject = subject
+        config.subject = subj
         config.title = title
       end
     end
 
-    it {    from.should eq(from) }
-    it { subject.should eq(subject) }
-    it {   title.should eq(title) }
+    it { klass.from.should eq(from) }
+    it { klass.subject.should eq(subj) }
+    it { klass.title.should eq(title) }
+    it { klass.reports.should be_empty }
   end
 end
