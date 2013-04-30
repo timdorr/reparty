@@ -17,7 +17,7 @@ end
 
 ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
-    :database => Reparty.root + 'tmp/test.db'
+    :database => 'test.db'
 )
 
 unless ActiveRecord::Base.connection.table_exists? "users"
