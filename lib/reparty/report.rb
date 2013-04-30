@@ -5,7 +5,7 @@ module Reparty
     attr_reader :title
 
     def initialize(title)
-      raise "Report: title must be defined" unless title.is_a?(String) || title.empty?
+      raise "Report: title must be defined" unless title.is_a?(String) || title.blank?
       @title = title
     end
 
