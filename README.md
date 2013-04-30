@@ -20,7 +20,7 @@ Whilst not completely done, this is how you'll configure it for emailing a daily
       config.from = "test@test.com"
       config.subject = "SalesLoft JCA Daily Report"
     
-      config.add_report Reparty::Report::ActiveRecord, :user, :count
+      config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
     end
 
 ## Usage
