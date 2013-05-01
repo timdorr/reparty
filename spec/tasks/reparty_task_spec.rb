@@ -10,6 +10,7 @@ describe "reparty:email" do
 
     Reparty.config do |config|
       config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
+      config.add_report Reparty::Report::Sendgrid, "Sendgrid Emails", ENV["SENDGRID_USER"], ENV["SENDGRID_PASSWORD"]
     end
   end
 
