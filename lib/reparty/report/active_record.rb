@@ -22,6 +22,8 @@ module Reparty
         if args.last.is_a?(Hash)
           @field = args.last.fetch(:field, @field)
         end
+
+        @color = "#85bdad"
       end
 
       def attach(attachments)
