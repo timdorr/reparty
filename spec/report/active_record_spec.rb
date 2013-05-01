@@ -32,7 +32,7 @@ describe Reparty::Report::ActiveRecord do
       end
     end
 
-    its(:daily_dataset) { should == [1,1,1,1,1,0,2] }
+    its(:daily_dataset) { should == [1,1,1,1,0,2,0] }
     its(:yesterday)     { should == 0 }
     its(:total)         { should == 7 }
 
@@ -43,6 +43,6 @@ describe Reparty::Report::ActiveRecord do
       config.add_report Reparty::Report::ActiveRecord, "Users", User.where("score > 2")
     end
 
-    Reparty.reports.first.daily_dataset.should == [1,1,0,1,1,0,2]
+    Reparty.reports.first.daily_dataset.should == [1,0,1,1,0,2,0]
   end
 end

@@ -36,9 +36,9 @@ module Reparty
 
       def daily_dataset
         if @operation == :total
-          7.downto(1).map { |x| @model.where("#{@field.to_s} < ?", DateTime.now.at_midnight-x).send(:count, @field) }
+          7.downto(1).map { |x| @model.where("#{@field.to_s} < ?", DateTime.now.utc.at_midnight-x).send(:count, @field) }
         else
-          7.downto(1).map { |x| @model.where("DATE(#{@field.to_s}) = ?", DateTime.now.to_date-x).send(@operation, @field) }
+          7.downto(1).map { |x| @model.where("DATE(#{@field.to_s}) = ?", DateTime.now.utc.to_date-x).send(@operation, @field) }
         end
       end
 
