@@ -1,9 +1,11 @@
 require "reparty/version"
 
 require "reparty/config"
+require "reparty/email"
+
 require "reparty/report"
 require "reparty/report/active_record"
-require "reparty/email"
+require "reparty/report/sendgrid"
 
 require "reparty/engine"
 
