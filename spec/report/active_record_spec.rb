@@ -4,13 +4,13 @@ describe Reparty::Report::ActiveRecord do
   before(:each) do
     User.delete_all
     [
-        {:name => "Someone",   :score => 7, :created_at => DateTime.now - 2},
-        {:name => "Sometwo",   :score => 4, :created_at => DateTime.now - 2},
-        {:name => "Somethree", :score => 6, :created_at => DateTime.now - 4},
-        {:name => "Somefour",  :score => 8, :created_at => DateTime.now - 5},
-        {:name => "Somefive",  :score => 2, :created_at => DateTime.now - 6},
-        {:name => "Somesix",   :score => 4, :created_at => DateTime.now - 7},
-        {:name => "Someseven", :score => 5, :created_at => DateTime.now - 8},
+        {:name => "Someone",   :score => 7, :created_at => DateTime.now.utc - 2},
+        {:name => "Sometwo",   :score => 4, :created_at => DateTime.now.utc - 2},
+        {:name => "Somethree", :score => 6, :created_at => DateTime.now.utc - 4},
+        {:name => "Somefour",  :score => 8, :created_at => DateTime.now.utc - 5},
+        {:name => "Somefive",  :score => 2, :created_at => DateTime.now.utc - 6},
+        {:name => "Somesix",   :score => 4, :created_at => DateTime.now.utc - 7},
+        {:name => "Someseven", :score => 5, :created_at => DateTime.now.utc - 8},
     ].each{|u| User.create!(u) }
   end
 
@@ -20,6 +20,7 @@ describe Reparty::Report::ActiveRecord do
     end
     Reparty.reports.last.should be_kind_of(Reparty::Report::ActiveRecord)
     Reparty.reports.last.field.should == :updated_at
+    Reparty.reports.last.color.should == "#85bdad"
   end
 
   describe "when configured" do
@@ -31,7 +32,7 @@ describe Reparty::Report::ActiveRecord do
       end
     end
 
-    its(:daily_dataset) { should == [1,1,1,1,0,2,0] }
+    its(:daily_dataset) { should == [1,1,1,1,1,0,2] }
     its(:yesterday)     { should == 0 }
     its(:total)         { should == 7 }
 
@@ -42,6 +43,6 @@ describe Reparty::Report::ActiveRecord do
       config.add_report Reparty::Report::ActiveRecord, "Users", User.where("score > 2")
     end
 
-    Reparty.reports.first.daily_dataset.should == [1,0,1,1,0,2,0]
+    Reparty.reports.first.daily_dataset.should == [1,1,0,1,1,0,2]
   end
 end

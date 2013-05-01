@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Reparty::Report do
+  subject { Reparty::Report.new("title") }
+
+  its(:color) { should == "#832701"}
+
   it "requires a title" do
     expect {
       Reparty::Report.new("title!")
