@@ -1,3 +1,9 @@
+## 0.3.0
+
+- Add Sendgrid report
+- A few more possibly timezone fixes
+- Add HTTParty as a dependency. (Great library name, by the way!)
+
 ## 0.2.1
 
 - Timezone fix (ActiveRecord always saves in UTC)
