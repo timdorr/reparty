@@ -1,3 +1,9 @@
 language: ruby
 rvm:
   - 1.9.3
+notifications:
+  hipchat:
+    rooms:
+      - secure: "NzBO5IvnxXlCi0mduolO51uDOICzx7kH2ULFFG+YOj8OL8fIFP+n5nETAID8\nmTqjQZBra8gd7s1lCk0H2KOLjuozZHICZQEbu9O9lURpnd0CwzrquHkrvr0U\n+CsTtJ6FO0cRIo5F4uuzS66DyLH6dz25pkp9bk3FydtIT6WkOCI="
+  on_success: always
+  on_failure: always
