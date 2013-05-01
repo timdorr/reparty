@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sendgrid.com/api/stats.get.json?api_key=<SENDGRID_PASSWORD>&api_user=<SENDGRID_USER>&days=6&start_date=2013-05-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.3.14
+      Date:
+      - Wed, 01 May 2013 06:21:59 GMT
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '[{"delivered": 3059, "unsubscribes": 0, "invalid_email": 2, "bounces":
+        31, "repeat_unsubscribes": 0, "unique_clicks": 0, "blocked": 2, "spam_drop":
+        0, "repeat_bounces": 45, "repeat_spamreports": 0, "date": "2013-04-25", "requests":
+        3133, "spamreports": 0, "clicks": 0, "opens": 1, "unique_opens": 0},{"delivered":
+        3856, "unsubscribes": 0, "invalid_email": 3, "bounces": 29, "repeat_unsubscribes":
+        0, "unique_clicks": 0, "blocked": 2, "spam_drop": 0, "repeat_bounces": 78,
+        "repeat_spamreports": 0, "date": "2013-04-26", "requests": 3961, "spamreports":
+        0, "clicks": 0, "opens": 0, "unique_opens": 0},{"delivered": 3784, "unsubscribes":
+        0, "invalid_email": 3, "bounces": 5, "repeat_unsubscribes": 0, "unique_clicks":
+        0, "blocked": 3, "spam_drop": 0, "repeat_bounces": 104, "repeat_spamreports":
+        0, "date": "2013-04-27", "requests": 3899, "spamreports": 3, "clicks": 0,
+        "opens": 0, "unique_opens": 0},{"delivered": 2945, "unsubscribes": 0, "invalid_email":
+        3, "bounces": 5, "repeat_unsubscribes": 0, "unique_clicks": 0, "blocked":
+        6, "spam_drop": 0, "repeat_bounces": 78, "repeat_spamreports": 1, "date":
+        "2013-04-28", "requests": 3035, "spamreports": 0, "clicks": 0, "opens": 0,
+        "unique_opens": 0},{"delivered": 3218, "unsubscribes": 0, "invalid_email":
+        3, "bounces": 2, "repeat_unsubscribes": 0, "unique_clicks": 0, "blocked":
+        6, "spam_drop": 0, "repeat_bounces": 90, "repeat_spamreports": 0, "date":
+        "2013-04-29", "requests": 3317, "spamreports": 0, "clicks": 0, "opens": 0,
+        "unique_opens": 0},{"delivered": 4056, "unsubscribes": 0, "invalid_email":
+        3, "bounces": 2, "repeat_unsubscribes": 0, "unique_clicks": 0, "blocked":
+        5, "spam_drop": 0, "repeat_bounces": 115, "repeat_spamreports": 1, "date":
+        "2013-04-30", "requests": 4183, "spamreports": 0, "clicks": 0, "opens": 0,
+        "unique_opens": 0},{"delivered": 2, "unsubscribes": 0, "invalid_email": 0,
+        "bounces": 0, "repeat_unsubscribes": 0, "unique_clicks": 0, "blocked": 0,
+        "spam_drop": 0, "repeat_bounces": 0, "repeat_spamreports": 0, "date": "2013-05-01",
+        "requests": 2, "spamreports": 0, "clicks": 0, "opens": 0, "unique_opens":
+        0}]'
+    http_version: 
+  recorded_at: Wed, 01 May 2013 06:21:59 GMT
+recorded_with: VCR 2.4.0
