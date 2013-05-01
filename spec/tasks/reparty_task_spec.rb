@@ -10,7 +10,6 @@ describe "reparty:email" do
 
     Reparty.config do |config|
       config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
-      config.add_report Reparty::Report::Sendgrid, "Sendgrid Emails", ENV["SENDGRID_USER"], ENV["SENDGRID_PASSWORD"]
     end
   end
 
@@ -41,6 +40,11 @@ describe "reparty:email" do
         {:name => "Someone", :score => 1, :created_at => DateTime.now - 7},
         {:name => "Someone", :score => 1, :created_at => DateTime.now - 8},
     ].each{|u| User.create!(u) }
+
+    Reparty.config do |config|
+      config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
+      config.add_report Reparty::Report::Sendgrid, "Sendgrid Emails", ENV["SENDGRID_USER"], ENV["SENDGRID_PASSWORD"]
+    end
 
     subject.invoke("test@test.com")
   end
