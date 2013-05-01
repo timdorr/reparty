@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Timezone fix (ActiveRecord always saves in UTC)
+
 ## 0.2.0
 
 - Much improved email template
