@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Much improved email template
+
 ## 0.1.3
 
 - Better testing and coverage.
