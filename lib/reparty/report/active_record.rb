@@ -44,7 +44,7 @@ module Reparty
 
       def yesterday
         op = @operation == :total ? :count : @operation
-        @model.where("DATE(#{@field.to_s}) = ?", DateTime.now-1).send(op, @field)
+        @model.where("DATE(#{@field.to_s}) = ?", DateTime.now.utc.to_date-1).send(op, @field)
       end
 
       def total
