@@ -1,4 +1,4 @@
-<table width="500">
+<table width="545" cellpadding="0" cellspacing="25" border="0">
   <tr>
     <td align="left">
       <h3 style="margin:0"><%= report.title %></h3>
@@ -9,6 +9,6 @@
     </td>
   </tr>
   <tr>
-    <td align="center"><%= image_tag attachments["#{report.hash}.png"].url, align: "center" %></td>
+    <td align="center"><%= image_tag attachments["#{report.hash}.png"].url, border: 0, align: "center" %></td>
   </tr>
 </table>

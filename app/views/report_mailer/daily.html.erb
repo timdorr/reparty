@@ -1,20 +1,57 @@
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="en">
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <style type="text/css">
-    body { font-family: Helvetica, Arial, sans-serif; }
+    body { margin: 0; padding: 0; background: #eeeeee; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+    .title h1 { margin: 0; color: #999999; font-weight: normal; font-size: 25px; text-shadow: 0 1px 0 #ffffff; }
+
+    .report h3 { margin: 0; color: #444444; font-size: 16px; line-height: 24px; }
+    .report ul { margin-top: 5px; margin-bottom: 0; list-style-type: square; }
+    .report ul li { color: #888888; font-size: 14px; line-height: 20px; }
   </style>
 </head>
-<body>
-<table cellpadding="0" cellspacing="0" border="0" align="center" width="600">
-  <tr>
-    <td><h1><%= @title %></h1></td>
-  </tr>
-  <% @reports.each do |report| -%>
-    <tr><td>
-    <%= render partial: report.class.name.demodulize.underscore, locals:{report:report} %>
-    </td></tr>
-  <% end -%>
+<body bgcolor="#eeeeee" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+  <td bgcolor="#eeeeee" width="100%">
+
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="main">
+      <tr><td><img border="0" src="<%= attachments["spacer.gif"].url %>" width="1" height="25"><br></td></tr>
+
+      <tr>
+        <td width="600" class="title">
+          <h1><%= @title %></h1>
+        </td>
+      </tr>
+
+      <tr><td><img border="0" src="<%= attachments["spacer.gif"].url %>" width="1" height="25"><br></td></tr>
+
+      <% @reports.each do |report| -%>
+        <tr>
+          <td bgcolor="#ffffff">
+
+            <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+              <tr>
+                <td bgcolor="<%= report.color %>" nowrap><img border="0" src="<%= attachments["spacer.gif"].url %>" width="5" height="1"></td>
+                <td class="report">
+                  <%= render partial: report.class.name.demodulize.underscore, locals:{report:report} %>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <tr><td><img border="0" src="<%= attachments["spacer.gif"].url %>" width="1" height="25"><br></td></tr>
+    <% end -%>
+    </table>
+
+  </td>
+</tr>
 </table>
+
 </body>
 </html>
