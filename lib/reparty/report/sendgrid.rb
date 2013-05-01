@@ -18,15 +18,28 @@ module Reparty
         @color = "#287abe"
       end
 
+      def attach(attachments)
+        @graph = build_daily_graph
+
+        %W{requests delivered bounces spamreports}.each do |stat|
+          @graph.data(stat.capitalize, stats.map{|s| s.fetch(stat,0)})
+        end
+
+        attachments.inline["#{self.hash}.png"] = @graph.to_blob
+      end
+
       def stats(today=DateTime.now)
         @stats ||= self.class.get(
             "https://sendgrid.com/api/stats.get.json?" +
             "api_user=" + @api_user +
             "&api_key=" + @api_key +
-            "&start_date=" + today.utc.strftime("%Y-%m-%d") +
-            "&days=6",
+            "&start_date=" + (today.utc.to_date - 1).strftime("%Y-%m-%d") +
+            "&days=7",
             options: { format: 'json' }
         )
+
+        @stats.pop if @stats.size == 8
+        @stats
       end
     end
   end

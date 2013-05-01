@@ -2,11 +2,9 @@
 <tr>
   <td align="left">
     <h3><%= report.title %></h3>
-    <ul>
-    </ul>
   </td>
 </tr>
 <tr>
-  <td align="center"></td>
+  <td align="center"><%= image_tag attachments["#{report.hash}.png"].url, border: 0, align: "center" %></td>
 </tr>
 </table>
