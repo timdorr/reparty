@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Total graphs were off by one day
+
 ## 0.3.0
 
 - Add Sendgrid report
