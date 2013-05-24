@@ -19,7 +19,7 @@ module Reparty
       end
 
       def attach(attachments)
-        @graph = build_daily_graph
+        @graph = build_daily_line_graph
 
         %W{requests delivered bounces spamreports}.each do |stat|
           @graph.data(stat.capitalize, stats.map{|s| s.fetch(stat,0)})

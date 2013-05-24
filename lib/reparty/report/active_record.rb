@@ -27,7 +27,7 @@ module Reparty
       end
 
       def attach(attachments)
-        @graph = build_daily_graph
+        @graph = @operation == :total ? build_daily_area_graph : build_daily_line_graph
 
         @graph.data(@model.to_s.pluralize, daily_dataset)
 
