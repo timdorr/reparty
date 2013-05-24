@@ -3,6 +3,7 @@ require 'active_record'
 module Reparty
   class Report
     class ActiveRecord < Report
+      @@color_index = 0
       attr_reader :model, :operation, :field
 
       def initialize(*args, &block)
@@ -27,9 +28,10 @@ module Reparty
       end
 
       def attach(attachments)
-        @graph = @operation == :total ? build_daily_area_graph : build_daily_line_graph
+        @graph = @operation == :total ? build_daily_area_graph : build_daily_bar_graph
 
-        @graph.data(@model.to_s.pluralize, daily_dataset)
+        @graph.data(@model.to_s.pluralize, daily_dataset, @graph.colors[@@color_index])
+        @@color_index = (@@color_index + 1) % @graph.colors.length
 
         attachments.inline["#{self.hash}.png"] = @graph.to_blob
       end

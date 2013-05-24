@@ -24,6 +24,10 @@ module Reparty
       build_daily_graph(Gruff::Area.new(545), start_date)
     end
 
+    def build_daily_bar_graph(start_date=DateTime.now.utc)
+      build_daily_graph(Gruff::Bar.new(545), start_date)
+    end
+
     def build_daily_graph(g, start_date)
       g.title = @title
       g.labels = Hash[*(1..7).map{|x| [x-1, (start_date - (8-x)).strftime("%-m/%-d")] }.flatten]
