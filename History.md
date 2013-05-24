@@ -1,3 +1,8 @@
+## 0.3.2
+
+- Separate out graph types for counter and gauge graphs
+- Rotate through colors for each graph to provide variety
+
 ## 0.3.1
 
 - Total graphs were off by one day
