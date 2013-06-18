@@ -1,3 +1,7 @@
+## 0.3.5
+
+- Add Mixpanel funnel report
+
 ## 0.3.2
 
 - Separate out graph types for counter and gauge graphs
