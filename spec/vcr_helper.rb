@@ -10,4 +10,8 @@ VCR.configure do |c|
 
   c.filter_sensitive_data("<SENDGRID_USER>")     { ENV.fetch("SENDGRID_USER","admin@someplace.com") }
   c.filter_sensitive_data("<SENDGRID_PASSWORD>") { ENV.fetch("SENDGRID_PASSWORD","asdfasdf") }
+
+  c.filter_sensitive_data("<MIXPANEL_FUNNEL>") { ENV.fetch("MIXPANEL_FUNNEL",123456) }
+  c.filter_sensitive_data("<MIXPANEL_KEY>")    { ENV.fetch("MIXPANEL_KEY","abc123") }
+  c.filter_sensitive_data("<MIXPANEL_SECRET>") { ENV.fetch("MIXPANEL_SECRET","cba321") }
 end
