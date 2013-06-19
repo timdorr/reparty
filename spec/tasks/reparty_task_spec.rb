@@ -74,4 +74,16 @@ describe "reparty:weekly_email" do
       subject.invoke("test@test.com")
     }.to change(ActionMailer::Base, :deliveries)
   end
+
+  it "should send out via letter_opener", letteropener: true do
+    require 'letter_opener'
+    ActionMailer::Base.add_delivery_method :letter_opener, LetterOpener::DeliveryMethod, :location => File.expand_path('../../../tmp/letter_opener', __FILE__)
+    ActionMailer::Base.delivery_method = :letter_opener
+
+    Reparty.config do |config|
+      config.add_weekly_report Reparty::Report::MixpanelFunnel, "Mixpanel Funnel", ENV["MIXPANEL_FUNNEL"], ENV["MIXPANEL_KEY"], ENV["MIXPANEL_SECRET"]
+    end
+
+    subject.invoke("test@test.com")
+  end
 end
