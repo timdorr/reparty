@@ -17,7 +17,7 @@ module Reparty
     end
 
     attr_accessor :configuration
-    attr_reader :reports
+    attr_reader :reports, :weekly_reports
 
     def config
       self.configuration = Config.new
@@ -25,6 +25,7 @@ module Reparty
       yield(configuration)
 
       @reports = self.configuration.reports
+      @weekly_reports = self.configuration.weekly_reports
     end
   end
 end

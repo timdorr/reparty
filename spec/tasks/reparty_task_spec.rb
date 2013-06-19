@@ -50,3 +50,28 @@ describe "reparty:email" do
     subject.invoke("test@test.com")
   end
 end
+
+describe "reparty:weekly_email" do
+  include_context "rake"
+
+  before(:each) do
+    User.delete_all
+
+    Reparty.config do |config|
+      config.add_weekly_report Reparty::Report::ActiveRecord, "New User Signups", :user
+    end
+  end
+
+  its(:prerequisites) { should include("environment") }
+
+  it "requires an address" do
+    STDOUT.should_receive(:puts)
+    subject.invoke
+  end
+
+  it "should generate an email" do
+    expect{
+      subject.invoke("test@test.com")
+    }.to change(ActionMailer::Base, :deliveries)
+  end
+end

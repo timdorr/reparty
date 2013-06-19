@@ -5,6 +5,10 @@ module Reparty
         Reparty.reports
       end
 
+      def weekly_reports
+        Reparty.weekly_reports
+      end
+
       def from
         Reparty.configuration.from || 'nobody@nowhere.com'
       end
@@ -15,6 +19,10 @@ module Reparty
 
       def title
         Reparty.configuration.title || 'Your Daily Report:'
+      end
+
+      def weekly_title
+        Reparty.configuration.weekly_title || 'Your Weekly Report:'
       end
     end
   end
