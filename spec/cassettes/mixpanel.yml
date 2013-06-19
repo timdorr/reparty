@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://mixpanel.com/api/2.0/funnels?api_key=<MIXPANEL_KEY>&expire=1371582835&format=json&from_date=2013-06-11&funnel_id=<MIXPANEL_FUNNEL>&sig=e6a9ab140b21d043a430da5775583d5b&to_date=2013-06-17
+    uri: https://mixpanel.com/api/2.0/funnels?api_key=<MIXPANEL_KEY>&expire=1371655510&format=json&from_date=2013-06-12&funnel_id=<MIXPANEL_FUNNEL>&interval=1&sig=822d5273993b8b06e71358246bfa2d6f&to_date=2013-06-18
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - nginx/1.1.19
       Date:
-      - Tue, 18 Jun 2013 19:03:55 GMT
+      - Wed, 19 Jun 2013 15:15:10 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -32,43 +32,114 @@ http_interactions:
       - no-cache, no-store
     body:
       encoding: US-ASCII
-      string: ! '{"meta": {"dates": ["2013-06-11", "2013-06-12", "2013-06-13", "2013-06-14",
-        "2013-06-15", "2013-06-16", "2013-06-17"]}, "data": {"2013-06-17": {"steps":
+      string: ! '{"meta": {"dates": ["2013-06-12", "2013-06-13", "2013-06-14", "2013-06-15",
+        "2013-06-16", "2013-06-17", "2013-06-18"]}, "data": {"2013-06-17": {"steps":
         [{"count": 848, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 24, "step_conv_ratio":
-        0.02830188679245283, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.02830188679245283,
-        "avg_time": 22051, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        24, "starting_amount": 848, "steps": 2, "worst": 1}}, "2013-06-16": {"steps":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 29, "step_conv_ratio":
+        0.03419811320754717, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.03419811320754717,
+        "avg_time": 25755, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        29, "starting_amount": 848, "steps": 2, "worst": 1}}, "2013-06-16": {"steps":
         [{"count": 571, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 12, "step_conv_ratio":
-        0.021015761821366025, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.021015761821366025,
-        "avg_time": 106675, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        12, "starting_amount": 571, "steps": 2, "worst": 1}}, "2013-06-15": {"steps":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 14, "step_conv_ratio":
+        0.024518388791593695, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.024518388791593695,
+        "avg_time": 109055, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        14, "starting_amount": 571, "steps": 2, "worst": 1}}, "2013-06-15": {"steps":
         [{"count": 776, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 16, "step_conv_ratio":
-        0.020618556701030927, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.020618556701030927,
-        "avg_time": 193672, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        16, "starting_amount": 776, "steps": 2, "worst": 1}}, "2013-06-14": {"steps":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 20, "step_conv_ratio":
+        0.02577319587628866, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.02577319587628866,
+        "avg_time": 195452, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        20, "starting_amount": 776, "steps": 2, "worst": 1}}, "2013-06-14": {"steps":
         [{"count": 901, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 31, "step_conv_ratio":
-        0.03440621531631521, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.03440621531631521,
-        "avg_time": 95970, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        31, "starting_amount": 901, "steps": 2, "worst": 1}}, "2013-06-13": {"steps":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 35, "step_conv_ratio":
+        0.038845726970033294, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.038845726970033294,
+        "avg_time": 148191, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        35, "starting_amount": 901, "steps": 2, "worst": 1}}, "2013-06-13": {"steps":
         [{"count": 959, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 39, "step_conv_ratio":
-        0.040667361835245046, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.040667361835245046,
-        "avg_time": 123062, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        39, "starting_amount": 959, "steps": 2, "worst": 1}}, "2013-06-12": {"steps":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 44, "step_conv_ratio":
+        0.045881126173096975, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.045881126173096975,
+        "avg_time": 197465, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        44, "starting_amount": 959, "steps": 2, "worst": 1}}, "2013-06-12": {"steps":
         [{"count": 980, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 36, "step_conv_ratio":
-        0.036734693877551024, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.036734693877551024,
-        "avg_time": 174064, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        36, "starting_amount": 980, "steps": 2, "worst": 1}}, "2013-06-11": {"steps":
-        [{"count": 985, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
-        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 48, "step_conv_ratio":
-        0.048730964467005075, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.048730964467005075,
-        "avg_time": 173045, "event": "Viewed JCA Stream"}], "analysis": {"completion":
-        48, "starting_amount": 985, "steps": 2, "worst": 1}}}}'
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 41, "step_conv_ratio":
+        0.04183673469387755, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.04183673469387755,
+        "avg_time": 206732, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        41, "starting_amount": 980, "steps": 2, "worst": 1}}, "2013-06-18": {"steps":
+        [{"count": 1071, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 23, "step_conv_ratio":
+        0.021475256769374416, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.021475256769374416,
+        "avg_time": 15241, "event": "Viewed JCA Stream"}], "analysis": {"completion":
+        23, "starting_amount": 1071, "steps": 2, "worst": 1}}}}'
     http_version: 
-  recorded_at: Tue, 18 Jun 2013 19:03:55 GMT
+  recorded_at: Wed, 19 Jun 2013 15:15:10 GMT
+- request:
+    method: get
+    uri: https://mixpanel.com/api/2.0/funnels?api_key=<MIXPANEL_KEY>&expire=1371655958&format=json&from_date=2013-05-01&funnel_id=<MIXPANEL_FUNNEL>&interval=7&sig=1d9e9bb9e518724bd091831b21c80f61&to_date=2013-06-18
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Wed, 19 Jun 2013 15:22:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2939'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, no-store
+    body:
+      encoding: US-ASCII
+      string: ! '{"meta": {"dates": ["2013-05-01", "2013-05-08", "2013-05-15", "2013-05-22",
+        "2013-05-29", "2013-06-05", "2013-06-12"]}, "data": {"2013-05-15": {"steps":
+        [{"count": 0, "step_conv_ratio": 1, "goal": "Opened LinkedIn Email", "overall_conv_ratio":
+        1, "avg_time": null, "event": "Opened LinkedIn Email"}, {"count": 0, "step_conv_ratio":
+        0, "goal": "Viewed JCA Stream", "overall_conv_ratio": 0, "avg_time": null,
+        "event": "Viewed JCA Stream"}], "analysis": {"completion": 0, "starting_amount":
+        0, "steps": 2, "worst": 1}}, "2013-05-01": {"steps": [{"count": 0, "step_conv_ratio":
+        1, "goal": "Opened LinkedIn Email", "overall_conv_ratio": 1, "avg_time": null,
+        "event": "Opened LinkedIn Email"}, {"count": 0, "step_conv_ratio": 0, "goal":
+        "Viewed JCA Stream", "overall_conv_ratio": 0, "avg_time": null, "event": "Viewed
+        JCA Stream"}], "analysis": {"completion": 0, "starting_amount": 0, "steps":
+        2, "worst": 1}}, "2013-06-12": {"steps": [{"count": 1842, "step_conv_ratio":
+        1, "goal": "Opened LinkedIn Email", "overall_conv_ratio": 1, "avg_time": null,
+        "event": "Opened LinkedIn Email"}, {"count": 77, "step_conv_ratio": 0.041802388707926165,
+        "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.041802388707926165, "avg_time":
+        131583, "event": "Viewed JCA Stream"}], "analysis": {"completion": 77, "starting_amount":
+        1842, "steps": 2, "worst": 1}}, "2013-05-08": {"steps": [{"count": 0, "step_conv_ratio":
+        1, "goal": "Opened LinkedIn Email", "overall_conv_ratio": 1, "avg_time": null,
+        "event": "Opened LinkedIn Email"}, {"count": 0, "step_conv_ratio": 0, "goal":
+        "Viewed JCA Stream", "overall_conv_ratio": 0, "avg_time": null, "event": "Viewed
+        JCA Stream"}], "analysis": {"completion": 0, "starting_amount": 0, "steps":
+        2, "worst": 1}}, "2013-05-29": {"steps": [{"count": 0, "step_conv_ratio":
+        1, "goal": "Opened LinkedIn Email", "overall_conv_ratio": 1, "avg_time": null,
+        "event": "Opened LinkedIn Email"}, {"count": 0, "step_conv_ratio": 0, "goal":
+        "Viewed JCA Stream", "overall_conv_ratio": 0, "avg_time": null, "event": "Viewed
+        JCA Stream"}], "analysis": {"completion": 0, "starting_amount": 0, "steps":
+        2, "worst": 1}}, "2013-05-22": {"steps": [{"count": 0, "step_conv_ratio":
+        1, "goal": "Opened LinkedIn Email", "overall_conv_ratio": 1, "avg_time": null,
+        "event": "Opened LinkedIn Email"}, {"count": 0, "step_conv_ratio": 0, "goal":
+        "Viewed JCA Stream", "overall_conv_ratio": 0, "avg_time": null, "event": "Viewed
+        JCA Stream"}], "analysis": {"completion": 0, "starting_amount": 0, "steps":
+        2, "worst": 1}}, "2013-06-05": {"steps": [{"count": 1588, "step_conv_ratio":
+        1, "goal": "Opened LinkedIn Email", "overall_conv_ratio": 1, "avg_time": null,
+        "event": "Opened LinkedIn Email"}, {"count": 82, "step_conv_ratio": 0.05163727959697733,
+        "goal": "Viewed JCA Stream", "overall_conv_ratio": 0.05163727959697733, "avg_time":
+        415671, "event": "Viewed JCA Stream"}], "analysis": {"completion": 82, "starting_amount":
+        1588, "steps": 2, "worst": 1}}}}'
+    http_version: 
+  recorded_at: Wed, 19 Jun 2013 15:22:39 GMT
 recorded_with: VCR 2.4.0

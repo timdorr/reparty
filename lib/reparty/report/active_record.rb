@@ -7,7 +7,7 @@ module Reparty
       attr_reader :model, :operation, :field
 
       def initialize(*args, &block)
-        super(args.shift)
+        super(args.shift, args.shift)
 
         if args.first.is_a?(Symbol)
           @model = Kernel.const_get(args.first.to_s.capitalize)

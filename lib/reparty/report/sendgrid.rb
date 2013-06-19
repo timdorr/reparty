@@ -10,7 +10,7 @@ module Reparty
       attr_reader :api_user, :api_key
 
       def initialize(*args, &block)
-        super(args.shift)
+        super(args.shift, args.shift)
 
         @api_user = args.shift
         @api_key = args.shift

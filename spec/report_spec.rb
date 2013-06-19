@@ -1,27 +1,24 @@
 require 'spec_helper'
 
 describe Reparty::Report do
-  subject { Reparty::Report.new("title") }
+  let(:interval) { 1 }
+  let(:title) { "title" }
 
-  its(:color) { should == "#832701"}
+  subject { Reparty::Report.new(interval, title) }
+
+  its(:color)    { should == "#832701"}
+  its(:interval) { should == interval}
+  its(:title)    { should == title}
 
   it "requires a title" do
     expect {
-      Reparty::Report.new("title!")
-    }.to_not raise_exception
-
-    expect {
-      Reparty::Report.new(nil)
-    }.to raise_exception
-
-    expect {
-      Reparty::Report.new("")
+      Reparty::Report.new(interval, "")
     }.to raise_exception
   end
 
   it "has an attach method" do
     expect {
-      Reparty::Report.new("title!").attach(nil)
+      subject.attach(nil)
     }.to_not raise_exception
   end
 end

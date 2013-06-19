@@ -2,11 +2,14 @@ require 'gruff'
 
 module Reparty
   class Report
-    attr_reader :title, :color
+    attr_reader :interval, :title, :color
 
-    def initialize(title)
+    def initialize(interval, title)
+      @interval = interval
+
       raise "Report: title must be defined" if title.blank?
       @title = title
+
       @color = "#832701"
     end
 

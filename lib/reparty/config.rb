@@ -10,11 +10,11 @@ module Reparty
     end
 
     def add_report(report, *args, &block)
-      @reports << report.new(*args, &block)
+      @reports << report.new(1, *args, &block)
     end
 
     def add_weekly_report(report, *args, &block)
-      @weekly_reports << report.new(*args, &block)
+      @weekly_reports << report.new(7, *args, &block)
     end
   end
 end
