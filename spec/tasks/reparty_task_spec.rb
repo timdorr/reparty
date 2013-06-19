@@ -42,7 +42,7 @@ describe "reparty:email" do
     ].each{|u| User.create!(u) }
 
     Reparty.config do |config|
-      config.add_report Reparty::Report::MixpanelFunnel, "Mixpanel Funnel", ENV["MIXPANEL_FUNNEL"], ENV["MIXPANEL_KEY"], ENV["MIXPANEL_SECRET"]
+      config.add_report Reparty::Report::MixpanelFunnel, "Mixpanel Funnel", ENV["MIXPANEL_KEY"], ENV["MIXPANEL_SECRET"], :funnel, ENV["MIXPANEL_FUNNEL"]
       config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
       config.add_report Reparty::Report::Sendgrid, "Sendgrid Emails", ENV["SENDGRID_USER"], ENV["SENDGRID_PASSWORD"]
     end
@@ -81,7 +81,7 @@ describe "reparty:weekly_email" do
     ActionMailer::Base.delivery_method = :letter_opener
 
     Reparty.config do |config|
-      config.add_weekly_report Reparty::Report::MixpanelFunnel, "Mixpanel Funnel", ENV["MIXPANEL_FUNNEL"], ENV["MIXPANEL_KEY"], ENV["MIXPANEL_SECRET"]
+      config.add_weekly_report Reparty::Report::Mixpanel, "Mixpanel Funnel", ENV["MIXPANEL_KEY"], ENV["MIXPANEL_SECRET"], :funnel, ENV["MIXPANEL_FUNNEL"]
     end
 
     subject.invoke("test@test.com")

@@ -6,7 +6,7 @@ require "reparty/email"
 require "reparty/report"
 require "reparty/report/active_record"
 require "reparty/report/sendgrid"
-require "reparty/report/mixpanel_funnel"
+require "reparty/report/mixpanel"
 
 require "reparty/engine"
 

@@ -1,0 +1,20 @@
+<% (report.funnel_data.first[1]["steps"].size+1).times.each do |i|  %>
+  <% if i == 0 %>
+    <thead><tr>
+      <th width="100"></th>
+      <% report.funnel_data.each do |data| %>
+        <th><%= Date.parse(data[0]).strftime("%b %-d") %></th>
+      <% end %>
+    </tr></thead>
+  <% else %>
+    <tr>
+      <% report.funnel_data.each_with_index do |data, j| %>
+        <% if j == 0 %><td class="first"><%= data[1]["steps"][i-1]["goal"] %></td><% end %>
+        <td>
+          <%= number_to_percentage data[1]["steps"][i-1]["step_conv_ratio"]*100, precision: 2 %>
+          (<%= data[1]["steps"][i-1]["count"] %>)
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>

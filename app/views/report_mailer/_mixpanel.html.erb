@@ -1,0 +1,14 @@
+<table width="100%" cellpadding="0" cellspacing="25" border="0">
+  <tr>
+    <td align="left">
+      <h3 style="margin:0"><%= report.title %></h3>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <table class="data" cellpadding="5" cellspacing="0" border="0">
+        <%= render partial: "mixpanel/#{report.report}", locals:{report:report} %>
+      </table>
+    </td>
+  </tr>
+</table>
