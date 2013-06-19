@@ -5,7 +5,8 @@ module Reparty
     attr_reader :reports, :weekly_reports
 
     def initialize
-      @reports = @weekly_reports = []
+      @reports = []
+      @weekly_reports = []
       super
     end
 
