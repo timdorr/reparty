@@ -1,5 +1,7 @@
-## 0.3.5
+## 0.5.0
 
+- Weekly emails (hack-ish for now...)
+- Allow reports to have an interval (1 for daily, 7 for weekly)
 - Add Mixpanel funnel report
 
 ## 0.3.2
