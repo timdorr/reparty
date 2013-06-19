@@ -25,7 +25,7 @@ describe Reparty::Report::Mixpanel, vcr: { cassette_name: "mixpanel", match_requ
 
   its("funnel_data.size") { should == 7 }
 
-  describe "weekly interval" do
+  describe "weekly interval support" do
     subject do
       Reparty.config do |config|
         config.add_weekly_report Reparty::Report::Mixpanel, "Mixpanel Funnel", mixpanel_key, mixpanel_secret, :funnel, funnel_id
@@ -34,5 +34,16 @@ describe Reparty::Report::Mixpanel, vcr: { cassette_name: "mixpanel", match_requ
     end
 
     its("funnel_data.size") { should == 7 }
+  end
+
+  describe "engagement report" do
+    subject do
+      Reparty.config do |config|
+        config.add_weekly_report Reparty::Report::Mixpanel, "Mixpanel Funnel", mixpanel_key, mixpanel_secret, :engage
+      end
+      Reparty.weekly_reports.last
+    end
+
+    its("engage_data.size") { should == 54 }
   end
 end
