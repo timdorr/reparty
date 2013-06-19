@@ -1,0 +1,10 @@
+<table width="100%" cellpadding="0" cellspacing="3" border="0" class="list">
+<% report.engage_data.each do |person|  %>
+  <tr>
+    <td><img src="<%= "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(person["$properties"]["$email"].downcase)}?s=20&d=mm"  %>" /></td>
+    <td align="left">
+      <%= person["$properties"]["$first_name"] %> <%= person["$properties"]["$last_name"] %> (<%= mail_to person["$properties"]["$email"] %>)
+    </td>
+  </tr>
+<% end %>
+</table>

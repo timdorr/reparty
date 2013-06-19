@@ -40,7 +40,12 @@ module Reparty
       end
 
       def engage_data
-        @engage_data ||= client.request("engage", {where: "properties[\"$last_seen\"] > \"#{1.day.ago.strftime("%Y-%m-%dT%H:%M:%S")}}\""})["results"]
+        @engage_data ||= client.request(
+            "engage",
+            {
+                where: "properties[\"$last_seen\"] > \"#{1.day.ago.strftime("%Y-%m-%dT%H:%M:%S")}\""
+            }
+        )["results"]
       end
     end
   end
