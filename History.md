@@ -1,3 +1,8 @@
+## 0.5.1
+
+- Refactor the Mixpanel report to support different types
+- Add Mixpanel engagement report
+
 ## 0.5.0
 
 - Weekly emails (hack-ish for now...)

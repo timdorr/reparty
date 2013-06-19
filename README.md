@@ -10,7 +10,7 @@ Custom modules can be created within your app. The currently bundled modules are
 
 * ActiveRecord, including arbitrary sum/count columns
 * SendGrid
-* Mixpanel (just funnels for now)
+* Mixpanel (funnels and engagement for now)
 
 Other modules will be added over time. This is in use in production at my company, SalesLoft,
 so focus will be on the modules that best suit our needs. Feel free to submit a pull request
