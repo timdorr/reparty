@@ -3,18 +3,22 @@
 __A business analytics reporting party!__
 
 Although initially concentrating on a daily email report, Reparty intends to be an easy 
-tool for building dashboards and reports focused on business analytics about your app. 
+tool for generating reports focused on business analytics about your app.
 
-Planned reporting modules include:
+A modular design is used, so reporting on a variety of different data sources is possible.
+Custom modules can be created within your app. The currently bundled modules are:
 
 * ActiveRecord, including arbitrary sum/count columns
-* Google Analytics/MixPanel/Gaug.es/etc etc
-* Stripe
-* Twitter
+* SendGrid
+* Mixpanel (just funnels for now)
+
+Other modules will be added over time. This is in use in production at my company, SalesLoft,
+so focus will be on the modules that best suit our needs. Feel free to submit a pull request
+with any modules you have created.
 
 ## Configuration
 
-Whilst not completely done, this is how you'll configure it for emailing a daily user count in the near future.
+You can configure Reparty in an initalizer using a config block:
 
     Reparty.config do |config|
       config.from = "test@test.com"
@@ -23,10 +27,18 @@ Whilst not completely done, this is how you'll configure it for emailing a daily
       config.add_report Reparty::Report::ActiveRecord, "New User Signups", :user
     end
 
+Better documentation of Reparty and each individual module's configuration is coming. For now,
+ you'll just have to read the code (sorry!). Check the test suite for examples.
+
 ## Usage
 
 Generating an email is as simple as a rake task:
 
     rake reparty:email[someone@somewhere.com]
 
-You can run this in a cron job or other scheduling system.
+You can run this in a cron job or other scheduling system. A weekly email is currently hacked
+in to the code, which you can run using it's separate rake task:
+
+    rake reparty:weekly_email[someone@somewhere.com]
+
+This will likely change in the future, so watch out when upgrading!
