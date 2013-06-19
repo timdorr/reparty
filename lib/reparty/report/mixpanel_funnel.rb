@@ -23,7 +23,7 @@ module Reparty
         from_date = (DateTime.now-(interval*7)).strftime("%Y-%m-%d")
         to_date = (DateTime.now-1).strftime("%Y-%m-%d")
 
-        @funnel_data ||= client.request(
+        @funnel_data ||= Hash[client.request(
             "funnels",
             {
                 funnel_id: funnel_id,
@@ -31,7 +31,7 @@ module Reparty
                 from_date: from_date,
                 to_date: to_date
             }
-        )["data"]
+        )["data"].sort.reverse]
       end
     end
   end
