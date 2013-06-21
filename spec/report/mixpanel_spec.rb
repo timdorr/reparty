@@ -39,11 +39,12 @@ describe Reparty::Report::Mixpanel, vcr: { cassette_name: "mixpanel", match_requ
   describe "engagement report" do
     subject do
       Reparty.config do |config|
-        config.add_weekly_report Reparty::Report::Mixpanel, "Mixpanel Funnel", mixpanel_key, mixpanel_secret, :engage
+        config.add_weekly_report Reparty::Report::Mixpanel, "Mixpanel Funnel", mixpanel_key, mixpanel_secret, :engage, ["crm", "pro"]
       end
       Reparty.weekly_reports.last
     end
 
+    its(:fields) { should == ["crm", "pro"] }
     its("engage_data.size") { should == 54 }
   end
 end

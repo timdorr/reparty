@@ -3,7 +3,7 @@ require 'mixpanel_client'
 module Reparty
   class Report
     class Mixpanel < Report
-      attr_reader :api_key, :api_secret, :report
+      attr_reader :api_key, :api_secret, :report, :fields
 
       def initialize(*args, &block)
         super(args.shift, args.shift)
@@ -12,9 +12,12 @@ module Reparty
         @api_secret = args.shift
 
         @report = args.shift
+        @fields = []
         case @report
           when :funnel
             @funnel_id = args.shift
+          when :engage
+            @fields = args.shift if args.present?
         end
 
         @color = "#7548a2"
