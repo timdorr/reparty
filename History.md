@@ -1,3 +1,7 @@
+## 0.5.2
+
+- Add custom field display to the Mixpanel engagement report
+
 ## 0.5.1
 
 - Refactor the Mixpanel report to support different types
